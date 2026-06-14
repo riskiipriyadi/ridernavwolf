@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RiderNav — Jasa Install Ulang Laptop & Windows</title>
+<meta name="description" content="Jasa install ulang Windows, Linux, software, game, upgrade RAM/SSD/HDD. Antar-jemput Wonokromo, Pleret, Bantul. Remote support tersedia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a12;
+    --surface: #12121f;
+    --surface2: #1c1c2e;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.14);
+    --text: #f0eefc;
+    --muted: rgba(240,238,252,0.55);
+    --accent: #a855f7;       /* purple vaporwave */
+    --accent-light: #c084fc;
+    --accent-glow: rgba(168,85,247,0.15);
+    --pink: #ec4899;
+    --pink-glow: rgba(236,72,153,0.15);
+    --yellow: #fbbf24;
+    --yellow-glow: rgba(251,191,36,0.15);
+    --teal: #14b8a6;
+    --teal-light: #5eead4;
+    --coral: #f97316;
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2rem;
+    border-bottom: 0.5px solid var(--border);
+    position: sticky; top: 0;
+    background: rgba(10,10,18,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  .logo {
+    font-family: var(--font-head);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .logo span { color: var(--accent); }
+  .logo-badge {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: linear-gradient(90deg, var(--accent), var(--pink));
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 4px;
+  }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--text); }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-cta {
+    background: linear-gradient(90deg, var(--accent), var(--pink));
+    color: #fff !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 600;
+    box-shadow: 0 4px 20px var(--accent-glow);
+  }
+  .nav-cta:hover { filter: brightness(1.15); color: #fff !important; }
+
+  /* HERO */
+  .hero {
+    padding: 5rem 2rem 4rem;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(168,85,247,0.12), transparent);
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-glow);
+    border: 0.5px solid var(--accent);
+    color: var(--accent-light);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 1.1rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.04em;
+    position: relative;
+  }
+  h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2.6rem, 6.5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+  h1 .accent {
+    background: linear-gradient(90deg, var(--accent-light), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent), var(--pink));
+    color: #fff;
+    padding: 0.85rem 2.2rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.15s, box-shadow 0.2s;
+    border: none; cursor: pointer;
+    box-shadow: 0 8px 30px rgba(168,85,247,0.25);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(168,85,247,0.35); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    padding: 0.85rem 2.2rem;
+    border-radius: 8px;
+    border: 0.5px solid var(--border2);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: pointer;
+  }
+  .btn-secondary:hover { border-color: var(--accent); background: var(--accent-glow); }
+
+  /* STATS */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+    margin: 1rem 0 0;
+    flex-wrap: wrap;
+  }
+  .stat {
+    flex: 1;
+    min-width: 140px;
+    max-width: 200px;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-right: 0.5px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--font-head);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-num .accent { color: var(--accent); }
+  .stat-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.03em; }
+
+  /* SECTION */
+  section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4.5rem 2rem;
+  }
+  .section-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  h2 {
+    font-family: var(--font-head);
+    font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  /* SERVICES GRID */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .service-card {
+    background: var(--surface);
+    padding: 1.75rem;
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .service-card:hover { background: var(--surface2); }
+  .service-icon {
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 1rem;
+  }
+  .icon-purple { background: var(--accent-glow); color: var(--accent-light); border: 0.5px solid var(--accent); }
+  .icon-teal { background: rgba(20,184,166,0.12); color: var(--teal-light); border: 0.5px solid var(--teal); }
+  .icon-coral { background: rgba(249,115,22,0.12); color: #fdba8c; border: 0.5px solid var(--coral); }
+  .icon-yellow { background: var(--yellow-glow); color: var(--yellow); border: 0.5px solid var(--yellow); }
+  .service-title {
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  .service-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .service-tags {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--surface2);
+    border: 0.5px solid var(--border2);
+    color: var(--muted);
+  }
+
+  /* PROCESS */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0;
+    position: relative;
+  }
+  .step {
+    padding: 1.5rem;
+    position: relative;
+  }
+  .step-num {
+    font-family: var(--font-head);
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--border2);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+  .step-title {
+    font-family: var(--font-head);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: var(--text);
+  }
+  .step-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .pricing-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    position: relative;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .pricing-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+  .pricing-card.featured {
+    border: 1.5px solid var(--accent);
+    background: var(--surface2);
+    box-shadow: 0 8px 40px rgba(168,85,247,0.12);
+  }
+  .featured-badge {
+    position: absolute;
+    top: -12px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(90deg, var(--accent), var(--pink));
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 999px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(168,85,247,0.3);
+  }
+  .price-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+  .price-name {
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+  }
+  .price-amount {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0.75rem 0 0.25rem;
+    background: linear-gradient(90deg, var(--text), var(--accent-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .price-amount small {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--muted);
+    font-family: var(--font-body);
+    -webkit-text-fill-color: var(--muted);
+  }
+  .price-note { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.25rem; }
+  .price-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+  .price-features li {
+    font-size: 0.83rem;
+    color: var(--muted);
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .price-features li:last-child { border-bottom: none; }
+  .price-features li i { color: var(--teal-light); font-size: 15px; flex-shrink: 0; }
+
+  /* GITHUB / REPO SECTION */
+  .github-section {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .github-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 40% at 80% 0%, rgba(168,85,247,0.08), transparent);
+    pointer-events: none;
+  }
+  .github-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .github-avatar {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--pink));
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+    border: 2px solid var(--border2);
+  }
+  .github-info h3 {
+    font-family: var(--font-head);
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+  }
+  .github-info p {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .github-stats-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .github-stat {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .github-stat strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+  .repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .repo-card {
+    background: var(--bg);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    transition: border-color 0.2s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .repo-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    background: rgba(168,85,247,0.03);
+  }
+  .repo-name {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-light);
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .repo-name i { font-size: 14px; color: var(--muted); }
+  .repo-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+  .repo-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .repo-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .lang-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .lang-html { background: #e34c26; }
+  .lang-astro { background: #ff5d01; }
+
+  /* CTA */
+  .cta-block {
+    background: var(--surface2);
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(168,85,247,0.1), transparent);
+    pointer-events: none;
+  }
+  .cta-block h2 { margin-bottom: 0.75rem; position: relative; }
+  .cta-block p { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; max-width: 460px; margin-left: auto; margin-right: auto; position: relative; }
+
+  /* FOOTER */
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 2rem 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  footer strong { color: var(--text); font-weight: 600; }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--accent-light); }
+
+  .divider { border: none; border-top: 0.5px solid var(--border); }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .stat { border-right: none; border-bottom: 0.5px solid var(--border); max-width: 50%; }
+    .stat:nth-child(2) { border-bottom: none; }
+    .github-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<<nav>
+  <div class="logo">Rider<span>Nav</span><span class="logo-badge">Monetaro</span></div>
+  <div class="nav-links">
+    <a href="#layanan">Layanan</a>
+    <a href="#harga">Harga</a>
+    <a href="#github">Repo</a>
+    <a href="https://wa.me/6281234567890" target="_blank" class="nav-cta"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Hubungi</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="badge"><i class="ti ti-bolt" aria-hidden="true"></i> Garansi Beres atau Gratis</div>
+  <h1>Install Ulang Windows,<br><span class="accent">Langsung Beres.</span></h1>
+  <p class="hero-sub">Windows 7/8/8.1/10/11, driver lengkap, Office, software & game. Bisa antar-jemput di Wonokromo, Pleret, Bantul — atau remote support dari rumah.</p>
+  <div class="hero-btns">
+    <a href="https://wa.me/6281234567890" target="_blank" class="btn-primary"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Chat WhatsApp</a>
+    <a href="#layanan" class="btn-secondary">Lihat Layanan <i class="ti ti-arrow-down" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">200<span class="accent">+</span></div><div class="stat-label">Perangkat ditangani</div></div>
+  <div class="stat"><div class="stat-num"><span class="accent">~</span>2<span>jam</span></div><div class="stat-label">Rata-rata selesai</div></div>
+  <div class="stat"><div class="stat-num">100<span class="accent">%</span></div><div class="stat-label">Garansi beres</div></div>
+  <div class="stat"><div class="stat-num"><span class="accent">✓</span>Remote</div><div class="stat-label">Tanpa keluar rumah</div></div>
+</div>
+
+<section id="layanan">
+  <div class="section-tag"><i class="ti ti-tools"></i> Layanan</div>
+  <h2>Semua kebutuhan laptop,<br>satu tempat.</h2>
+  <p class="section-sub">Dari install ulang Windows sampai upgrade hardware, dikerjain rapi dan siap pakai.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon icon-purple"><i class="ti ti-brand-windows" aria-hidden="true"></i></div>
+      <div class="service-title">Install Ulang Windows</div>
+      <div class="service-desc">Windows 7, 8, 8.1, 10, atau 11. Format bersih, driver lengkap, aktivasi, Office, browser, siap pakai.</div>
+      <div class="service-tags">
+        <span class="tag">Win 7–11</span><span class="tag">Clean install</span><span class="tag">Driver</span><span class="tag">Office</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon icon-teal"><i class="ti ti-brand-ubuntu" aria-hidden="true"></i></div>
+      <div class="service-title">Install Software & Game</div>
+      <div class="service-desc">Install software, game, atau aplikasi khusus sesuai permintaan. Steam, Adobe, Office, dan lainnya.</div>
+      <div class="service-tags">
+        <span class="tag">Steam</span><span class="tag">Adobe</span><span class="tag">Office</span><span class="tag">Custom</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon icon-coral"><i class="ti ti-cpu" aria-hidden="true"></i></div>
+      <div class="service-title">Upgrade RAM / SSD / HDD</div>
+      <div class="service-desc">Pasang RAM, ganti SSD/HDD, migrasi data. Bisa bantu carikan hardware dari marketplace tanpa mark-up.</div>
+      <div class="service-tags">
+        <span class="tag">RAM</span><span class="tag">SSD</span><span class="tag">HDD</span><span class="tag">Migrasi data</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon icon-yellow"><i class="ti ti-device-gamepad-2" aria-hidden="true"></i></div>
+      <div class="service-title">Remote Support</div>
+      <div class="service-desc">Butuh bantuan cepat? Bisa via remote untuk troubleshooting, install software, atau setting tanpa keluar rumah.</div>
+      <div class="service-tags">
+        <span class="tag">AnyDesk</span><span class="tag">TeamViewer</span><span class="tag">Troubleshoot</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="section-tag"><i class="ti ti-route"></i> Cara Kerja</div>
+  <h2>Simpel, cepat,<br>nggak ribet.</h2>
+  <p class="section-sub">Empat langkah dari chat sampai laptop siap dipakai.</p>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-title">Chat & Konsultasi</div>
+      <div class="step-desc">Ceritain kebutuhan, nanti diestimasi waktu, harga, dan skema antar-jemput.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-title">Antar / Jemput</div>
+      <div class="step-desc">Bisa antar sendiri ke Wonokromo, atau teknisi jemput ke lokasimu (Rp 2.000/km).</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-title">Proses Install</div>
+      <div class="step-desc">Dikerjain rapi, data aman, semua diinstall dan ditest dulu sebelum diserahin.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-title">Done & Garansi</div>
+      <div class="step-desc">Laptop diserahin siap pakai. Ada garansi kalau ada masalah teknis setelahnya.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="harga">
+  <div class="section-tag"><i class="ti ti-coin"></i> Harga</div>
+  <h2>Transparan,<br>nggak ada biaya tersembunyi.</h2>
+  <p class="section-sub">Harga flat dan jelas. Custom request bisa diskusi dulu.</p>
+
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="price-label">Paket</div>
+      <div class="price-name">Install Windows</div>
+      <div class="price-amount">Rp 50K <small>/ flat</small></div>
+      <div class="price-note">Install ulang Windows 7/8/8.1/10/11</div>
+      <ul class="price-features">
+        <li><i class="ti ti-check" aria-hidden="true"></i>Windows sesuai versi pilihan</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>Driver terbaru (chipset, LAN, dll)</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>Microsoft Office</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>Browser, PDF Reader, Multimedia</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>.NET, DirectX, VC++ Redist</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>Test fungsionalitas</li>
+      </ul>
+      <a href="https://wa.me/6281234567890" target="_blank" class="btn-secondary" style="width:100%;justify-content:center;">Pesan</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="featured-badge">PALING LARIS</div>
+      <div class="price-label">Paket</div>
+      <div class="price-name">Lengkap + Software</div>
+      <div class="price-amount">Rp 50K+ <small>/ sesuai request</small></div>
+      <div class="price-note">Windows + software/game tambahan</div>
+      <ul class="price-features">
+        <li><i class="ti ti-check" aria-hidden="true"></i>Semua benefit Install Windows</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>Software / game sesuai permintaan</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>Tune-up & optimasi startup</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>Buang bloatware</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>Garansi 7 hari</li>
+      </ul>
+      <a href="https://wa.me/6281234567890" target="_blank" class="btn-primary" style="width:100%;justify-content:center;">Pesan Sekarang</a>
+    </div>
+
+    <div class="pricing-card">
+      <div class="price-label">Paket</div>
+      <div class="price-name">Upgrade Hardware</div>
+      <div class="price-amount">Rp 25K–65K <small>/ jasa</small></div>
+      <div class="price-note">RAM, SSD, HDD + migrasi data</div>
+      <ul class="price-features">
+        <li><i class="ti ti-check" aria-hidden="true"></i>Pasang RAM: Rp 25.000</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>Pasang SSD/HDD + install: Rp 65.000</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>Migrasi data dari storage lama</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>Konsultasi hardware gratis</li>
+      </ul>
+      <a href="https://wa.me/6281234567890" target="_blank" class="btn-secondary" style="width:100%;justify-content:center;">Pesan</a>
+    </div>
+  </div>
+
+  <div style="margin-top:2rem; background: var(--surface); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+    <h3 style="font-family: var(--font-head); font-size: 1rem; margin-bottom: 0.75rem;"><i class="ti ti-truck" style="color: var(--accent); margin-right: 6px;"></i>Skema Antar-Jemput</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; font-size: 0.85rem; color: var(--muted);">
+      <div>
+        <strong style="color: var(--text); display: block; margin-bottom: 4px;">1. Antar & Ambil Sendiri</strong>
+        Ke lokasi teknisi Wonokromo, Pleret, Bantul. Tanpa biaya tambahan.
+      </div>
+      <div>
+        <strong style="color: var(--text); display: block; margin-bottom: 4px;">2. Teknisi Jemput</strong>
+        Dijemput ke lokasi Anda (Rp 2.000/km satu arah), ambil sendiri ke lokasi teknisi.
+      </div>
+      <div>
+        <strong style="color: var(--text); display: block; margin-bottom: 4px;">3. Jemput & Antar (PP)</strong>
+        Teknisi jemput dan antar kembali. Biaya Rp 2.000/km × 2 (PP).
+      </div>
+    </div>
+    <p style="font-size: 0.8rem; color: var(--muted); margin-top: 1rem; border-top: 0.5px solid var(--border); padding-top: 1rem;">
+      <i class="ti ti-clock" style="margin-right: 4px;"></i><strong>Express 1 Hari Jadi:</strong> +Rp 25.000 &nbsp;·&nbsp; <strong>Reguler 2 Hari:</strong> gratis. &nbsp;·&nbsp; Bisa juga pakai Gojek/kurir (biaya sesuai aplikasi).
+    </p>
+  </div>
+
+  <p style="font-size:0.8rem;color:var(--muted);margin-top:1.25rem;text-align:center;">
+    Install software/game tambahan Rp 10.000–30.000 sesuai jumlah & kesulitan. Konsultasi gratis.
+  </p>
+</section>
+
+<hr class="divider">
+
+<section id="github">
+  <div class="section-tag"><i class="ti ti-brand-github"></i> Repositori</div>
+  <h2>Developer behind<br>the service.</h2>
+  <p class="section-sub">Landing page ini dikelola oleh developer aktif. Cek repo GitHub saya:</p>
+
+  <div class="github-section">
+    <div class="github-header">
+      <div class="github-avatar">R</div>
+      <div class="github-info">
+        <h3>riskiipriyadi</h3>
+        <p>Developer & Teknisi — Soreang, Bandung</p>
+      </div>
+    </div>
+    <div class="github-stats-row">
+      <div class="github-stat"><strong>234</strong> contributions last year</div>
+      <div class="github-stat"><strong>3</strong> public repos</div>
+      <div class="github-stat"><strong>214</strong> commits this month</div>
+    </div>
+
+    <div class="repo-grid">
+      <a href="https://github.com/riskiipriyadi/portofolio" target="_blank" class="repo-card">
+        <div class="repo-name"><i class="ti ti-book"></i> portofolio</div>
+        <div class="repo-desc">Personal portfolio website built with HTML & CSS.</div>
+        <div class="repo-meta">
+          <span><span class="lang-dot lang-html"></span> HTML</span>
+          <span><i class="ti ti-star"></i> Public</span>
+        </div>
+      </a>
+      <a href="https://github.com/riskiipriyadi/sinibaca" target="_blank" class="repo-card">
+        <div class="repo-name"><i class="ti ti-book"></i> sinibaca</div>
+        <div class="repo-desc">Reading app / web reader project.</div>
+        <div class="repo-meta">
+          <span><span class="lang-dot lang-html"></span> HTML</span>
+          <span><i class="ti ti-star"></i> Public</span>
+        </div>
+      </a>
+      <a href="https://github.com/riskiipriyadi/sinibaca-v2" target="_blank" class="repo-card">
+        <div class="repo-name"><i class="ti ti-book"></i> sinibaca-v2</div>
+        <div class="repo-desc">Rewritten version of SiniBaca using Astro framework.</div>
+        <div class="repo-meta">
+          <span><span class="lang-dot lang-astro"></span> Astro</span>
+          <span><i class="ti ti-star"></i> Public</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta-block">
+    <div class="section-tag" style="display:inline-block;margin-bottom:0.75rem;"><i class="ti ti-rocket"></i> Mulai Sekarang</div>
+    <h2>Laptop bermasalah?<br>Chat dulu, gratis konsultasi.</h2>
+    <p>Nggak perlu langsung bayar. Ceritain masalahnya dulu, nanti dibantu diagnosa dan estimasi harga + waktu.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/6281234567890" target="_blank" class="btn-primary"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Chat WhatsApp</a>
+      <a href="https://github.com/riskiipriyadi" target="_blank" class="btn-secondary"><i class="ti ti-brand-github" aria-hidden="true"></i> GitHub Saya</a>
+    </div>
+  </div>
+</section>
+
+<<footer>
+  <div class="footer-links">
+    <a href="#layanan">Layanan</a>
+    <a href="#harga">Harga</a>
+    <a href="#github">GitHub</a>
+    <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a>
+  </div>
+  <strong>RiderNav</strong> — Jasa Install Ulang Laptop & Windows by Monetaro &nbsp;·&nbsp; Wonokromo, Pleret, Bantul &nbsp;·&nbsp; Remote tersedia
+</footer>
+
+</body>
+</html>
