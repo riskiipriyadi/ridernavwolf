@@ -18,7 +18,7 @@
     --border2: rgba(255,255,255,0.14);
     --text: #f0eefc;
     --muted: rgba(240,238,252,0.55);
-    --accent: #a855f7;       /* purple vaporwave */
+    --accent: #a855f7;
     --accent-light: #c084fc;
     --accent-glow: rgba(168,85,247,0.15);
     --pink: #ec4899;
@@ -40,8 +40,6 @@
     line-height: 1.6;
     min-height: 100vh;
   }
-
-  /* NAV */
   nav {
     display: flex;
     align-items: center;
@@ -93,8 +91,6 @@
     box-shadow: 0 4px 20px var(--accent-glow);
   }
   .nav-cta:hover { filter: brightness(1.15); color: #fff !important; }
-
-  /* HERO */
   .hero {
     padding: 5rem 2rem 4rem;
     max-width: 960px;
@@ -187,8 +183,6 @@
     cursor: pointer;
   }
   .btn-secondary:hover { border-color: var(--accent); background: var(--accent-glow); }
-
-  /* STATS */
   .stats {
     display: flex;
     justify-content: center;
@@ -217,8 +211,6 @@
   }
   .stat-num .accent { color: var(--accent); }
   .stat-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.03em; }
-
-  /* SECTION */
   section {
     max-width: 1000px;
     margin: 0 auto;
@@ -250,8 +242,6 @@
     margin-bottom: 2.5rem;
     line-height: 1.7;
   }
-
-  /* SERVICES GRID */
   .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -306,8 +296,6 @@
     border: 0.5px solid var(--border2);
     color: var(--muted);
   }
-
-  /* PROCESS */
   .process-steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -334,8 +322,6 @@
     color: var(--text);
   }
   .step-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
-
-  /* PRICING */
   .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -416,8 +402,6 @@
   }
   .price-features li:last-child { border-bottom: none; }
   .price-features li i { color: var(--teal-light); font-size: 15px; flex-shrink: 0; }
-
-  /* GITHUB / REPO SECTION */
   .github-section {
     background: var(--surface);
     border: 0.5px solid var(--border);
@@ -531,8 +515,6 @@
   }
   .lang-html { background: #e34c26; }
   .lang-astro { background: #ff5d01; }
-
-  /* CTA */
   .cta-block {
     background: var(--surface2);
     border: 0.5px solid var(--border);
@@ -551,8 +533,6 @@
   }
   .cta-block h2 { margin-bottom: 0.75rem; position: relative; }
   .cta-block p { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; max-width: 460px; margin-left: auto; margin-right: auto; position: relative; }
-
-  /* FOOTER */
   footer {
     border-top: 0.5px solid var(--border);
     padding: 2rem 2rem;
@@ -575,10 +555,7 @@
     transition: color 0.2s;
   }
   .footer-links a:hover { color: var(--accent-light); }
-
   .divider { border: none; border-top: 0.5px solid var(--border); }
-
-  /* RESPONSIVE */
   @media (max-width: 640px) {
     .stat { border-right: none; border-bottom: 0.5px solid var(--border); max-width: 50%; }
     .stat:nth-child(2) { border-bottom: none; }
@@ -778,7 +755,7 @@
     <div class="github-header">
       <div class="github-avatar">R</div>
       <div class="github-info">
-        <h3>riskiipriyadi</h3>
+        <h3>ridernavwolf</h3>
         <p>Developer & Teknisi — Soreang, Bandung</p>
       </div>
     </div>
@@ -789,7 +766,7 @@
     </div>
 
     <div class="repo-grid">
-      <a href="https://github.com/riskiipriyadi/portofolio" target="_blank" class="repo-card">
+      <a href="https://github.com/ridernavwolf/portofolio" target="_blank" class="repo-card">
         <div class="repo-name"><i class="ti ti-book"></i> portofolio</div>
         <div class="repo-desc">Personal portfolio website built with HTML & CSS.</div>
         <div class="repo-meta">
@@ -797,7 +774,7 @@
           <span><i class="ti ti-star"></i> Public</span>
         </div>
       </a>
-      <a href="https://github.com/riskiipriyadi/sinibaca" target="_blank" class="repo-card">
+      <a href="https://github.com/ridernavwolf/sinibaca" target="_blank" class="repo-card">
         <div class="repo-name"><i class="ti ti-book"></i> sinibaca</div>
         <div class="repo-desc">Reading app / web reader project.</div>
         <div class="repo-meta">
@@ -805,7 +782,7 @@
           <span><i class="ti ti-star"></i> Public</span>
         </div>
       </a>
-      <a href="https://github.com/riskiipriyadi/sinibaca-v2" target="_blank" class="repo-card">
+      <a href="https://github.com/ridernavwolf/sinibaca-v2" target="_blank" class="repo-card">
         <div class="repo-name"><i class="ti ti-book"></i> sinibaca-v2</div>
         <div class="repo-desc">Rewritten version of SiniBaca using Astro framework.</div>
         <div class="repo-meta">
@@ -824,7 +801,7 @@
     <p>Nggak perlu langsung bayar. Ceritain masalahnya dulu, nanti dibantu diagnosa dan estimasi harga + waktu.</p>
     <div class="hero-btns">
       <a href="https://wa.me/6281234567890" target="_blank" class="btn-primary"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Chat WhatsApp</a>
-      <a href="https://github.com/riskiipriyadi" target="_blank" class="btn-secondary"><i class="ti ti-brand-github" aria-hidden="true"></i> GitHub Saya</a>
+      <a href="https://github.com/ridernavwolf" target="_blank" class="btn-secondary"><i class="ti ti-brand-github" aria-hidden="true"></i> GitHub Saya</a>
     </div>
   </div>
 </section>
